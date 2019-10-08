@@ -1,0 +1,17 @@
+/*利用%10次數會等於/10次數 來確保反轉後的數字位數 會等於原數值位數*/
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x < 0){
+            return false;   //負數必定不為回文數 121 => -121 (優先判斷才不浪費時間)
+        }
+        
+        int count = 0;  //用來計算並翻轉數值x
+        int source = x; //取得原來數值來做計算
+        
+        while(source>0){
+            count = count*10 + source%10; 
+            source/=10;                   
+        }        
+        return count == x;
+    }
+}
